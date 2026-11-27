@@ -32,6 +32,18 @@ sudo apt-get update && sudo apt-get install -y terraform
 #### 3. Create ssh key pair
 ```bash
 mkdir -p ~/.ssh && chmod 700 ~/.ssh && ssh-keygen -t ed25519 -f ~/.ssh/gcp_key -N "" -C "devops-gcp-control-node"
+
+
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+cat << 'EOF' >> ~/.ssh/config
+
+Host 35.* 104.* 130.*
+User ubuntu
+IdentityFile ~/.ssh/gcp_key
+IdentitiesOnly yes
+StrictHostKeyChecking accept-new
+EOF
+chmod 600 ~/.ssh/config
 ```
 
 #### 4. ADC login with --no-browser
