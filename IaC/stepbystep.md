@@ -1,6 +1,6 @@
 ## In my case i use AWS EC2 machine as control node machine and use terraform to create GCP machine
 
-## There are 4 main step 
+## There are 4 main step to write this  
 
 ### 1. generate ssh key on your machine 
 ### 2. Authenticated with gcloud
@@ -63,5 +63,10 @@ terraform destroy -auto-approve
 ##### Stop 
 ```bash
 gcloud compute instances stop machine-01-name machine-02-name machine-03-name --zone=asia-east1-a
+```
+
+##### Verify Google's load balancer sees the instance group:
+```bash
+gcloud compute backend-services get-health app-services-backend --global
 ```
 
