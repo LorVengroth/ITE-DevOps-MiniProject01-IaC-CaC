@@ -41,6 +41,12 @@ gcloud auth application-default login --no-browser
 ![alt text](image.png)
 ###### copy the longest text at the middle and paste to the local window terminal and copy the output paste into the EC2 machine terminal
 
+#####  command to install gcloud on window
+```bash
+winget install -e --id Google.CloudSDK
+gcloud --version
+```
+
 #### 4.1 Set the quota project
 ```bash
 gcloud auth application-default set-quota-project your-project-id
