@@ -7,6 +7,8 @@
 ### 3. write code in main.tf and output.tf
 ### 4. Write command to create , destroy machine 
 
+## The purpose of each step
+
 #### 1. SSH key on EC2: Lets EC2 (and Ansible) log in securely to the 3 GCP VMs without a password.
 #### 2. gcloud: Logs in your Google account so Terraform has permission to create/delete GCP resources ( dont need JSON key ).
 
