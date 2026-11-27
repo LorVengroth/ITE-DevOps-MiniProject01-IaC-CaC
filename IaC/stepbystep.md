@@ -46,7 +46,7 @@ gcloud --version
 gcloud auth application-default set-quota-project your-project-id
 ```
 
-#### 3 just code
+#### 3 just code for 2 file : main.tf and output.tf
 
 #### 4. Command 
 
