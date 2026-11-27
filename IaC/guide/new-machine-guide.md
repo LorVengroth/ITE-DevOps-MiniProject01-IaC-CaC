@@ -46,6 +46,11 @@ EOF
 chmod 600 ~/.ssh/config
 ```
 
+#### 3.1 to ssh to other machine 
+```bash
+ssh ubuntu@target-machine-ip
+```
+
 #### 4. ADC login with --no-browser
 ```bash
 gcloud auth application-default login --no-browser
