@@ -4,11 +4,11 @@ set -euo pipefail
 
 echo "=== Control Node Setup ==="
 
-# Install required packages
+# 1. Install required packages
 sudo apt-get update
 sudo apt-get install -y curl gnupg openssh-client
 
-# Install Terraform
+# 2. Install Terraform
 if command -v terraform >/dev/null 2>&1; then
     echo "Terraform is already installed."
 else
@@ -25,7 +25,7 @@ else
     sudo apt-get install -y terraform
 fi
 
-# Generate SSH Key
+# 3. Generate SSH Key
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 
@@ -45,12 +45,32 @@ if [ ! -f "$HOME/.ssh/gcp_key.pub" ]; then
         > "$HOME/.ssh/gcp_key.pub"
 fi
 
-# Verify installation
-echo "=== Verification ==="
+# 4. Configure SSH automatically
+echo "Configuring SSH..."
 
+touch "$HOME/.ssh/config"
+
+if ! grep -Fq 'IdentityFile ~/.ssh/gcp_key' "$HOME/.ssh/config"; then
+    cat >> "$HOME/.ssh/config" <<'EOF'
+
+Host *
+    IdentityFile ~/.ssh/gcp_key
+EOF
+fi
+
+chmod 600 "$HOME/.ssh/config"
+chmod 600 "$HOME/.ssh/gcp_key"
+chmod 644 "$HOME/.ssh/gcp_key.pub"
+
+# 5. Verification
+echo "=== Terraform Version ==="
 terraform version
 
+echo "=== SSH Keys ==="
 ls -l "$HOME/.ssh/gcp_key"*
+
+echo "=== SSH Configuration ==="
+cat "$HOME/.ssh/config"
 
 echo "=== EC2 Public IP ==="
 curl -4fsS https://checkip.amazonaws.com
