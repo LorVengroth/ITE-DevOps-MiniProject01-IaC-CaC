@@ -1,0 +1,21 @@
+# Terraform local cache and providers
+**/.terraform/
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Variable files that may hold secrets or local overrides
+*.tfvars
+!*.tfvars.example
+
+# Credentials, keys, and local shell artifacts
+credentials/
+*.pem
+*.key
+*.ppk
+*.env
+.bash_history
