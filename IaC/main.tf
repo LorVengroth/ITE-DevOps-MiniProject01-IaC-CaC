@@ -6,13 +6,6 @@ terraform {
   }
 }
 
-// use this when use gcloud
-provider "google" {
-  project = var.project_id
-  region  = var.region
-  zone    = var.zone
-}
-
 
 // use this when use adc_file
 provider "google" {
