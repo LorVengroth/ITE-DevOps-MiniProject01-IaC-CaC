@@ -1,0 +1,19 @@
+
+---
+- name: Prepare all servers
+  hosts: devops
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install common packages
+      apt:
+        name:
+          - curl
+          - git
+          - ca-certificates
+          - gnupg
+        state: present

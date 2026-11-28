@@ -9,4 +9,4 @@ network      = "default"
 ssh_user            = "ubuntu"
 ssh_public_key_path = "~/.ssh/gcp_key.pub"
 
-control_node_cidr = "NEW_EC2_PUBLIC_IP/32"
+control_node_cidr = "54.252.163.228"

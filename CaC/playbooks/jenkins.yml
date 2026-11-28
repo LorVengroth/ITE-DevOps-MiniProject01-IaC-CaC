@@ -1,0 +1,17 @@
+
+---
+- name: Install Jenkins
+  hosts: jenkins
+  become: true
+
+  tasks:
+    - name: Run Jenkins container
+      community.docker.docker_container:
+        name: jenkins
+        image: jenkins/jenkins:lts-jdk21
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "8080:8080"
+        volumes:
+          - "jenkins_data:/var/jenkins_home"

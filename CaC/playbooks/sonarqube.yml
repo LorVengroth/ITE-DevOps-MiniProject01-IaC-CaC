@@ -1,0 +1,34 @@
+
+---
+- name: Install SonarQube
+  hosts: sonarqube
+  become: true
+
+  tasks:
+    - name: Configure system requirements
+      copy:
+        dest: /etc/sysctl.d/99-sonarqube.conf
+        content: |
+          vm.max_map_count=524288
+          fs.file-max=131072
+        mode: '0644'
+
+    - name: Apply system configuration
+      command: sysctl -p /etc/sysctl.d/99-sonarqube.conf
+      changed_when: false
+
+    - name: Run SonarQube container
+      community.docker.docker_container:
+        name: sonarqube
+        image: sonarqube:community
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "9000:9000"
+        volumes:
+          - "sonarqube_data:/opt/sonarqube/data"
+          - "sonarqube_extensions:/opt/sonarqube/extensions"
+          - "sonarqube_logs:/opt/sonarqube/logs"
+        ulimits:
+          - "nofile:131072:131072"
+          - "nproc:8192:8192"
