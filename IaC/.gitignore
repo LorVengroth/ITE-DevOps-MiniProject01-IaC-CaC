@@ -29,23 +29,6 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 
-# ==============================
-# Credentials and Secrets
-# ==============================
-# credentials/
-# *.pem
-# *.key
-# *.ppk
-# .env
-# .env.*
-# .bash_history
-
-# ==============================
-# SSH Private Keys
-# ==============================
-# gcp_key
-# id_rsa
-# id_ed25519
 
 # ==============================
 # IDE Files
@@ -53,8 +36,3 @@ override.tf.json
 .vscode/
 .idea/
 
-# ==============================
-# Allow Terraform Variables
-# ==============================
-# !terraform.tfvars
-# !*.tfvars.example
