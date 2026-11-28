@@ -1,38 +1,30 @@
-# ==============================
-# Terraform Cache
-# ==============================
+# Terraform cache and providers
 **/.terraform/
+.terraform/
 
-# ==============================
-# Terraform State
-# ==============================
+# Terraform state files
 *.tfstate
 *.tfstate.*
 
-# ==============================
-# Terraform Plan
-# ==============================
+# Terraform plan files
 *.tfplan
 tfplan
 
-# ==============================
-# Terraform Crash Logs
-# ==============================
+# Terraform crash logs
 crash.log
 crash.*.log
 
-# ==============================
-# Local Override Files
-# ==============================
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+# SSH private keys
+*.pem
+*.key
+*.ppk
+gcp_key
+id_rsa
+id_ed25519
 
+# Local shell files
+.bash_history
 
-# ==============================
-# IDE Files
-# ==============================
+# IDE files
 .vscode/
 .idea/
-
