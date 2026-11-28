@@ -1,21 +1,60 @@
-# Terraform local cache and providers
+# ==============================
+# Terraform Cache
+# ==============================
 **/.terraform/
-.terraform/
 
-# Terraform state files
+# ==============================
+# Terraform State
+# ==============================
 *.tfstate
 *.tfstate.*
+
+# ==============================
+# Terraform Plan
+# ==============================
+*.tfplan
+tfplan
+
+# ==============================
+# Terraform Crash Logs
+# ==============================
 crash.log
 crash.*.log
 
-# Variable files that may hold secrets or local overrides
-*.tfvars
-!*.tfvars.example
+# ==============================
+# Local Override Files
+# ==============================
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
-# Credentials, keys, and local shell artifacts
-credentials/
-*.pem
-*.key
-*.ppk
-*.env
-.bash_history
+# ==============================
+# Credentials and Secrets
+# ==============================
+# credentials/
+# *.pem
+# *.key
+# *.ppk
+# .env
+# .env.*
+# .bash_history
+
+# ==============================
+# SSH Private Keys
+# ==============================
+# gcp_key
+# id_rsa
+# id_ed25519
+
+# ==============================
+# IDE Files
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# Allow Terraform Variables
+# ==============================
+# !terraform.tfvars
+# !*.tfvars.example
